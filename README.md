@@ -1,6 +1,6 @@
-# Simple Node.js Application
+# Simple Express.js Application
 
-This is a minimal Node.js application that starts an HTTP server and responds with a greeting.
+This is a minimal Express.js application that starts a web server and responds with a greeting.
 
 ## Run
 

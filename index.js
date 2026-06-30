@@ -1,9 +1,10 @@
-const http = require('http');
+const express = require('express');
 
+const app = express();
 const hostname = '127.0.0.1';
 const port = process.env.PORT || 3000;
 
-const server = http.createServer((req, res) => {
+app.get('/', (req, res) => {
   const html = `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,11 +32,9 @@ const server = http.createServer((req, res) => {
   </body>
 </html>`;
 
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html; charset=utf-8');
-  res.end(html);
+  res.status(200).type('text/html; charset=utf-8').send(html);
 });
 
-server.listen(port, hostname, () => {
+app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
