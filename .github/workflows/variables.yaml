@@ -17,6 +17,10 @@ on:
             required: true
             default: 'v1.0.0'
 
+env:
+  TYPE_OF_ENV: "1 tier application"
+
+
 jobs:
   show-the-inputs:
     runs-on: ubuntu-latest
@@ -24,4 +28,8 @@ jobs:
       - name: show the inputs
         run: |
           echo  "environment is : ${{ inputs.environment }}"
-          echo  "version is : ${{ inputs.version }}"    
+          echo  "version is : ${{ inputs.version }}" 
+
+      - name: environment variable
+        run: |
+          echo  "env variable is : $TYPE_OF_ENV" 
