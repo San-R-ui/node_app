@@ -1,0 +1,27 @@
+name: variables
+
+on:
+  workflow_dispatch:
+        inputs:
+          environment:
+            description: 'Application environment'
+            required: true
+            default: 'test'
+            type: choice
+            options:
+              - dev
+              - test
+              - prod
+          version:
+            description: 'Application version'
+            required: true
+            default: 'v1.0.0'
+
+jobs:
+  show-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: show the inputs
+        run: |
+          echo  "environment is : ${{ inputs.environment }}"
+          echo  "version is : ${{ inputs.version }}"    
