@@ -18,18 +18,37 @@ on:
             default: 'v1.0.0'
 
 env:
-  TYPE_OF_ENV: "1 tier application"
+  GLOBAL_ENV: "1 tier application"
 
 
 jobs:
-  show-the-inputs:
+  job1:
     runs-on: ubuntu-latest
+    
+    env: 
+      JOB1: "2 tier appli0cation"
+
     steps:
       - name: show the inputs
         run: |
           echo  "environment is : ${{ inputs.environment }}"
           echo  "version is : ${{ inputs.version }}" 
 
-      - name: environment variable
+      - name: global variable
         run: |
-          echo  "env variable is : $TYPE_OF_ENV" 
+          echo  "global variable is : $GLOBAL_ENV" 
+      
+      - name: JOB1 variable
+        run: |
+          echo  "JOB1 variable is : $JOB1" 
+
+    job2:
+    runs-on: ubuntu-latest
+    
+    env: 
+      JOB2: "Monolithic application"
+
+    steps:
+      - name: JOB2 variable
+        run: |
+          echo  "JOB2 variable is : $JOB2"
