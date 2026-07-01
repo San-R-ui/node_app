@@ -47,7 +47,7 @@ jobs:
     
     env:
       JOB2: "Monolithic application"
-      steps:
-        - name: JOB2 variable
-          run: |
-            echo  "JOB2 variable is : $JOB2"
+    steps:
+      - name: JOB2 variable
+        run: |
+          echo  "JOB2 variable is : $JOB2"
